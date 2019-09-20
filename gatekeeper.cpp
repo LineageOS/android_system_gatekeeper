@@ -147,7 +147,7 @@ void GateKeeper::Verify(const VerifyRequest &request, VerifyResponse *response) 
 
     if (DoVerify(password_handle, request.provided_password)) {
         // Signature matches
-        UniquePtr<uint8_t> auth_token_buffer;
+        UniquePtr<uint8_t[]> auth_token_buffer;
         uint32_t auth_token_len;
         MintAuthToken(&auth_token_buffer, &auth_token_len, timestamp,
                 user_id, authenticator_id, request.challenge);
